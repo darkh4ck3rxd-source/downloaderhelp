@@ -1,0 +1,221 @@
+.start-bar {
+  position: absolute;
+  z-index: 18;
+  left: 46px;
+  right: 46px;
+  bottom: 136px;
+  height: 76px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  color: white;
+  font-size: 30px;
+  font-weight: 830;
+  background: var(--ios-blue);
+  box-shadow: 0 10px 24px rgba(0,122,255,.34);
+  animation: startHide .28s ease forwards 1.45s;
+}
+
+@keyframes startHide {
+  to { opacity: 0; transform: translateY(28px); pointer-events: none; }
+}
+
+.tap {
+  position: absolute;
+  z-index: 40;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 10px 22px rgba(28, 47, 85, .22);
+  opacity: 0;
+  transform: scale(.65);
+}
+
+.tap::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border-radius: 50%;
+  background: rgba(0,122,255,.22);
+}
+
+.tap.start { left: 365px; bottom: 146px; animation: tap .52s ease forwards 1.05s; }
+.tap.send.t1 { right: 22px; bottom: 31px; animation: tap .52s ease forwards 3.05s; }
+.tap.send.t2 { right: 22px; bottom: 31px; animation: tap .52s ease forwards 8.02s; }
+.tap.send.t3 { right: 22px; bottom: 31px; animation: tap .52s ease forwards 12.92s; }
+.tap.quality { left: 206px; top: 1260px; animation: tap .52s ease forwards 14.95s; }
+
+@keyframes tap {
+  0% { opacity: 0; transform: scale(.65); }
+  35% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.85); }
+}
+
+.cta {
+  position: absolute;
+  z-index: 20;
+  left: 132px;
+  right: 132px;
+  bottom: 46px;
+  padding: 19px 28px 22px;
+  border-radius: 28px;
+  text-align: center;
+  background: rgba(7, 14, 34, .76);
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 24px 64px rgba(9, 16, 40, .36);
+  opacity: 0;
+  transform: translateY(36px) scale(.96);
+  animation: ctaIn .65s cubic-bezier(.2,.95,.2,1.1) forwards 23.2s;
+}
+
+@keyframes ctaIn {
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.cta strong {
+  display: block;
+  font-size: 31px;
+  line-height: 1.05;
+  color: white;
+  letter-spacing: 0;
+}
+
+.cta span {
+  display: block;
+  margin-top: 7px;
+  color: rgba(255,255,255,.82);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.cta b {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 18px 10px;
+  border-radius: 999px;
+  color: white;
+  font-size: 22px;
+  background: linear-gradient(135deg, #2aabee, #25d4ae);
+  direction: ltr;
+}
+
+.guide {
+  width: min(100% - 28px, 920px);
+  margin: 0 auto 34px;
+  color: #eef6ff;
+  position: relative;
+  z-index: 2;
+}
+
+.guide-head {
+  padding: 28px 0 14px;
+  text-align: center;
+}
+
+.guide-head h2 {
+  margin: 0;
+  font-size: clamp(28px, 7vw, 48px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+
+.guide-head p {
+  max-width: 720px;
+  margin: 12px auto 0;
+  color: rgba(238, 246, 255, .72);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.step,
+.feature,
+.note {
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 8px;
+  background: rgba(255,255,255,.07);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .22);
+  backdrop-filter: blur(18px);
+}
+
+.step {
+  padding: 14px;
+  min-height: 136px;
+}
+
+.step-number {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2aabee, #25d4ae);
+  color: white;
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.step strong,
+.feature strong {
+  display: block;
+  font-size: 17px;
+  line-height: 1.25;
+  margin-bottom: 7px;
+}
+
+.step p,
+.feature p {
+  margin: 0;
+  color: rgba(238, 246, 255, .72);
+  font-size: 14px;
+  line-height: 1.58;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.feature {
+  padding: 16px;
+}
+
+.note {
+  margin-top: 10px;
+  padding: 16px;
+  color: #fff0bd;
+  background: rgba(246,196,83,.12);
+  border-color: rgba(246,196,83,.26);
+  line-height: 1.65;
+  font-size: 14px;
+}
+
+[dir="rtl"] .guide {
+  direction: rtl;
+}
+
+@media (max-width: 720px) {
+  .steps,
+  .features {
+    grid-template-columns: 1fr;
+  }
+  .guide {
+    width: min(100% - 22px, 920px);
+  }
+  .guide-head {
+    padding-top: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}
